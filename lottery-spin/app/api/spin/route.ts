@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
     const user = users.find((u) => u.email === email);
     if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 });
-    if (user.spinsAvailable <= 0) return NextResponse.json({ error: "No spins left" }, { status: 400 });
+    if (user.spinsAvailable <= 0) return NextResponse.json({ error: "No spins left, To get more coin please make more transactio" }, { status: 400 });
 
     // 1. Game Logic
     const prize = determinePrizeResult(50); // 50 is a density factor
